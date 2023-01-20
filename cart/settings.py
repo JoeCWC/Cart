@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cartapp',
+
 ]
 
 MIDDLEWARE = [
@@ -74,12 +75,24 @@ WSGI_APPLICATION = 'cart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', # 或者使用 mysql.connector.django
+         'NAME': 'cart',
+         'USER': 'root',
+         'PASSWORD': 'root',
+         'HOST':'127.0.0.1',
+         'PORT':'3306',
     }
 }
+
+
 
 
 # Password validation
