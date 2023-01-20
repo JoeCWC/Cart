@@ -17,11 +17,11 @@ def index(request):
 	else:  #重新購物
 		cartlist = []
 	cartnum = len(cartlist)  #購買商品筆數
-	productall = models.ProductModel.objects.all()  #取得資料庫所有商品
+	productall = models.Product_Coffee.objects.all()  #取得資料庫所有商品
 	return render(request, "index.html", locals())
 
 def detail(request, productid=None):  #商品詳細頁面
-	product = models.ProductModel.objects.get(id=productid)  #取得商品
+	product = models.Product_Coffee.objects.get(id=productid)  #取得商品
 	return render(request, "detail.html", locals())
 
 def cart(request):  #顯示購物車
@@ -36,20 +36,20 @@ def cart(request):  #顯示購物車
 def addtocart(request, ctype=None, productid=None):
 	global cartlist
 	if ctype == 'add':  #加入購物車
-		product = models.ProductModel.objects.get(id=productid)
+		product = models.Product_Coffee.objects.get(id=productid)
 		flag = True  #設檢查旗標為True
 		for unit in cartlist:  #逐筆檢查商品是否已存在
-			if product.pname == unit[0]:  #商品已存在
+			if product.origin == unit[0]:  #商品已存在
 				unit[2] = str(int(unit[2])+ 1)  #數量加1
-				unit[3] = str(int(unit[3]) + product.pprice)  #計算價錢
+				unit[3] = str(int(unit[3]) + product.price)  #計算價錢
 				flag = False  #設檢查旗標為False
 				break
 		if flag:  #商品不存在
 			temlist = []  #暫時串列
-			temlist.append(product.pname)  #將商品資料加入暫時串列
-			temlist.append(str(product.pprice))  #商品價格
+			temlist.append(product.origin)  #將商品資料加入暫時串列
+			temlist.append(str(product.price))  #商品價格
 			temlist.append('1')  #先暫訂數量為1
-			temlist.append(str(product.pprice))  #總價
+			temlist.append(str(product.price))  #總價
 			cartlist.append(temlist)  #將暫時串列加入購物車
 		request.session['cartlist'] = cartlist  #購物車寫入session
 		return redirect('/cart/')

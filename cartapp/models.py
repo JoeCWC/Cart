@@ -1,5 +1,13 @@
 from django.db import models
 
+class Product_Coffee(models.Model):
+    origin = models.CharField(max_length=100, default='')
+    price = models.IntegerField(default=0)
+    method = models.CharField(max_length=100, default='')
+    weight = models.IntegerField(default=0)
+    images = models.CharField(max_length=100, default='')
+    descriptions = models.TextField(blank=True, default='')
+
 class ProductModel(models.Model):
     pname =  models.CharField(max_length=100, default='')
     pprice = models.IntegerField(default=0)
