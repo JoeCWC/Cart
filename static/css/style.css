@@ -1,6 +1,6 @@
 @charset "utf-8";
 body {
-	background-color: #666;
+	background-color: #;
 }
 a:link {
 	color: #666;
@@ -24,7 +24,7 @@ a:active {
 	margin-left: auto;
 }
 #warp #content {
-	background-color: #EEE;
+	background-color: #;
 	padding: 10px;
 }
 #warp #content #sidediv {
@@ -36,7 +36,7 @@ a:active {
 }
 #warp #content #sidediv .sidemenu {
 	border-radius: 20px 0px 20px 0px;
-	color: #FFF;
+	color: #;
 	background-color: #;
 	padding: 5px;
 	font-weight: bold;
@@ -186,7 +186,7 @@ a.delcart {
 }
 #sidediv ul {
 	list-style-type: none;
-	list-style-image: url(images/icon_red.gif);
+	list-style-image: url(images/icon_coffee.png);
 	line-height: 150%;
 }
 .message {
